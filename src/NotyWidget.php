@@ -42,11 +42,11 @@ class NotyWidget extends Widget
             if (!isset($this->typeMap[$type])) {
                 continue;
             }
-            $type = $this->typeMap[$type];
-            $options = array_merge($this->options, $this->typeOptions[$type] ?? []);
+            $typeAlert = $this->typeMap[$type];
+            $options = array_merge($this->options, $this->typeOptions[$typeAlert] ?? []);
 
             foreach ((array)$flash as $i => $message) {
-                $options['type'] = $type;
+                $options['type'] = $typeAlert;
                 $options['text'] = $message;
                 $options = Json::encode($options);
                 $this->view->registerJs("new Noty($options).show();");
