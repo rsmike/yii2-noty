@@ -48,9 +48,8 @@ class NotyWidget extends Widget
             foreach ((array)$flash as $i => $message) {
                 $options['type'] = $typeAlert;
                 $options['text'] = $message;
-                $options = Json::encode($options);
-                $this->view->registerJs("new Noty($options).show();");
-                echo('HEY');
+                $optionsEncoded = Json::encode($options);
+                $this->view->registerJs("new Noty($optionsEncoded).show();");
             }
             $session->removeFlash($type);
         }
