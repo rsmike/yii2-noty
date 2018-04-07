@@ -1,6 +1,6 @@
-Collapsible panel widget for Yii2
+Simple notification widget for Yii2
 =================================
-Collapsible panel widget for Yii2
+Noty widget for Yii2
 
 Installation
 ------------
@@ -10,13 +10,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist rsmike/yii2-panel "*"
+php composer.phar require --prefer-dist rsmike/yii2-noty "*"
 ```
 
 or add
 
 ```
-"rsmike/yii2-panel": "*"
+"rsmike/yii2-noty": "*"
 ```
 
 to the require section of your `composer.json` file.
@@ -25,7 +25,20 @@ to the require section of your `composer.json` file.
 Usage
 -----
 
-Once the extension is installed, simply use it in your code by  :
+Once the extension is installed, simply use it in your layout file like this:
 
 ```php
-<?= \rsmike\panel\AutoloadExample::widget(); ?>```
+<?= NotyWidget::widget([
+    'typeOptions' => [
+        'success' => ['timeout' => 3000],
+        'info' => ['timeout' => 3000],
+    ],
+    'options' => [
+        'progressBar' => true,
+        'timeout' => false,
+        'layout' => 'topCenter',
+        'dismissQueue' => true,
+        'theme' => 'relax'
+    ],
+]) ?>
+```
